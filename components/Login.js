@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput,Button, TouchableOpacity, Alert, TouchableWithoutFeedback, Keyboard, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert, TouchableWithoutFeedback, Keyboard, ActivityIndicator } from 'react-native';
 import * as firebase from 'firebase'
 
 export default function Login({ navigation }) {
@@ -60,15 +60,15 @@ export default function Login({ navigation }) {
                                 value={email} onChangeText={(text) => setEmail(text)} underlineColorAndroid={'transparent'} />
                             <TextInput style={styles.input} placeholder="Your password"
                                 value={password} onChangeText={(text) => setPassword(text)} secureTextEntry={true} underlineColorAndroid={'transparent'} />
-                            <TouchableOpacity  onPress={() => OnLoginPress()}>
-                            <Button  title='Login' color='coral' />
+                            <TouchableOpacity style={styles.button} onPress={() => OnLoginPress()}>
+                                <Text style={styles.btntext}>Log In</Text>
                             </TouchableOpacity>
                         </View>}
-                    <TouchableOpacity  onPress={() => navigation.navigate('ForgetPassword')}>
-                        <Text >Forget Password?!</Text>
+                    <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('ForgetPassword')}>
+                        <Text style={styles.btntext}>Forget Password...</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity  style={styles.signup} onPress={() => navigation.navigate('Register')} >
-                        <Text>Don't have an account!!</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Register')} >
+                        <Text style={styles.btntext}>Press Here if you dont have account</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -105,6 +105,12 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ddd'
     
     },
+    btntext:{
+        
+        fontWeight: 'bold',
+        
+    }
+    ,
     form :{
         
       marginTop :130,
@@ -123,6 +129,22 @@ const styles = StyleSheet.create({
     },
     forgetpass:{
         
+    },
+    button:{
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        padding: 20,
+        backgroundColor: 'coral',
+        marginTop: 30,
+        borderRadius: 20,
+    },
+    btn: {
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        padding: 10,
+        backgroundColor: 'coral',
+        marginTop: 30,
+        borderRadius: 20,
     }
    
 });

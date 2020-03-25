@@ -4,9 +4,7 @@ import Home from '../components/Home'
 const screens = {
     Hello: {
         screen: Home,
-    },
-   
-    
+    }
 }
 
 const AuthStack = createStackNavigator(screens);

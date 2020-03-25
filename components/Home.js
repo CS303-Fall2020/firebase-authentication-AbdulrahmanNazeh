@@ -12,13 +12,8 @@ export default function Home({ navigation }) {
 
 
         <View style={styles.container}>
-            <Text style={styles.text}>Welcome {user.email}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AddGame')}>
-                <Text style={styles.btntext}>Add Game</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('ShowAll')}>
-                <Text style={styles.btntext}>Show All</Text>
-            </TouchableOpacity>
+            <Text style={styles.titleText}>Welcome {user.email}</Text>
+            
             <TouchableOpacity style={styles.button} onPress={() => OnSignOut()}>
                 <Text style={styles.btntext}>Sign Out</Text>
             </TouchableOpacity>
@@ -28,33 +23,77 @@ export default function Home({ navigation }) {
     )
 }
 const styles = StyleSheet.create({
-    button: {
+    container:{
+        flex:1,
+        padding:10,
+        backgroundColor:'#eee'
+    },
+    header:{
+        height: 80,
+        paddingTop:38,
+        backgroundColor:'coral'
+    },
+    titleText:{
+        fontSize:10,
+        color:'#333',
+        fontWeight:'bold',
+        marginLeft:100
+
+    },
+    paragraph:{
+        marginVertical:8,
+        lineHeight:20,
+    },
+    input: {
+        
+        height:40,
+        marginBottom: 10,
+        paddingHorizontal: 8,
+        paddingVertical: 6,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd'
+    
+    },
+    btntext:{
+        
+        fontWeight: 'bold',
+        
+    }
+    ,
+    form :{
+        
+      marginTop :130,
+      
+    },
+    forget:{
+        marginLeft:133,
+        marginTop:20
+    },
+    signup:{
+        marginLeft:120,
+    marginTop:60
+    },
+    sign:{
+        marginTop:130
+    },
+    forgetpass:{
+        
+    },
+    button:{
         alignSelf: 'stretch',
         alignItems: 'center',
-        padding: 30,
-        backgroundColor: 'red',
+        padding: 20,
+        backgroundColor: 'coral',
         marginTop: 30,
-        marginRight:20,
-        marginLeft:20,
+        borderRadius: 20,
     },
-    btntext: {
-        color: '#fff',
-        fontWeight: 'bold',
-
-    },
-    container: {
-        flex: 1,
-
-        backgroundColor: '#36485f',
-
-        
-        paddingBottom: 30,
-    },
-    text: {
-        color: 'white',
-        marginLeft:20,
-        marginTop: 250,
-    },
-    
-    
+    btn: {
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        padding: 10,
+        backgroundColor: 'coral',
+        marginTop: 30,
+        borderRadius: 20,
+    }
+  
 })

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View, TextInput,Button, TouchableOpacity, Alert,TouchableWithoutFeedback,Keyboard } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert,TouchableWithoutFeedback,Keyboard } from 'react-native';
 import * as firebase from "firebase";
 export default function ForgetPassword({ navigation }) {
     const [email, setEmail] = useState('')
@@ -37,20 +37,20 @@ export default function ForgetPassword({ navigation }) {
         }}>
         <View style={styles.container}>
             <View style={styles.form}>
-               <Text>Enter your Email</Text>
+              
 
 
                 <TextInput style={styles.input} placeholder="Your email"
                     value={email} onChangeText={(text) => setEmail(text)} underlineColorAndroid={'transparent'} />
-                {reset ? <Text >Email was sent successfully. please follow instructions to reset your password.</Text> : console.log()}
-                <TouchableOpacity  onPress={() => OnRetrivePassword()}>
-                    <Text >Reset Password</Text>
+                {reset ? <Text style={styles.btntext}>Email was sent successfully. please follow instructions to reset your password.</Text> : console.log()}
+                <TouchableOpacity style={styles.button} onPress={() => OnRetrivePassword()}>
+                    <Text style={styles.btntext}>Reset Password</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')} >
-                    <Text >Back to Login</Text>
+                    <Text style={styles.titleText}>Back to Login</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')} >
-                    <Text >Back to Signup</Text>
+                    <Text style={styles.titleText}>Back to Signup</Text>
                 </TouchableOpacity>
 
             </View>
@@ -59,24 +59,6 @@ export default function ForgetPassword({ navigation }) {
     )
 }
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        padding:10,
-        backgroundColor:'#eee'
-    },
-    header:{
-        height: 80,
-        paddingTop:38,
-        backgroundColor:'coral'
-    },
-    titleText:{
-        fontSize:10,
-        color:'#333'
-    },
-    paragraph:{
-        marginVertical:8,
-        lineHeight:20,
-    },
     input: {
         
         height:40,
@@ -87,6 +69,19 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ddd'
     
     },
+    titleText:{
+        fontWeight:'bold',
+        color:'#333',
+        marginLeft:130,
+        marginTop:20
+
+    },
+    btntext:{
+        
+        fontWeight: 'bold',
+        
+    }
+    ,
     form :{
         
       marginTop :130,
@@ -105,6 +100,22 @@ const styles = StyleSheet.create({
     },
     forgetpass:{
         
+    },
+    button:{
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        padding: 20,
+        backgroundColor: 'coral',
+        marginTop: 30,
+        borderRadius: 20,
+    },
+    btn: {
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        padding: 10,
+        backgroundColor: 'coral',
+        marginTop: 30,
+        borderRadius: 20,
     }
-   
+  
 });
